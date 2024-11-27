@@ -15,8 +15,6 @@ services:
       DRUPAL_DB_NAME: drupal
       DRUPAL_DB_USER: drupal_user
       DRUPAL_DB_PASSWORD: drupal_pass
-    networks:
-      - drupal_network
 
   db:
     image: mysql:8
@@ -30,13 +28,9 @@ services:
       MYSQL_PASSWORD: drupal_pass
     volumes:
       - db_data:/var/lib/mysql
-    networks:
-      - drupal_network
 
 volumes:
   drupal_data:
   db_data:
 
-networks:
-  drupal_network:
-    driver: bridge
+
